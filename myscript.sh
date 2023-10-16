@@ -11,4 +11,5 @@
 #SBATCH --mail-type=BEGIN,END
 
 module load anaconda
+module load cuda/12.2
 conda run -n fastaenv python prott5_predictions.py 'Small Peptide Hits'

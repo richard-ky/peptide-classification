@@ -1,1 +1,56 @@
-/var/spool/slurmd/job83034/slurm_script: line 14: /anaconda3/envs/fastaenv/bin/python: No such file or directory
+/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11080). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thouroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+/home/016070262/peptide-classification/prott5_predictions.py:38: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  input_ids = torch.tensor(inputs['input_ids']).to(device)
+/home/016070262/peptide-classification/prott5_predictions.py:39: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  attention_mask = torch.tensor(inputs['attention_mask']).to(device)
+Traceback (most recent call last):
+  File "/home/016070262/peptide-classification/prott5_predictions.py", line 45, in <module>
+    fasta_embeddings = [sentence_embedding(peptide) for peptide in fasta]
+  File "/home/016070262/peptide-classification/prott5_predictions.py", line 45, in <listcomp>
+    fasta_embeddings = [sentence_embedding(peptide) for peptide in fasta]
+  File "/home/016070262/peptide-classification/prott5_predictions.py", line 41, in sentence_embedding
+    outputs = model(input_ids=input_ids,attention_mask=attention_mask)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1965, in forward
+    encoder_outputs = self.encoder(
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1123, in forward
+    layer_outputs = layer_module(
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 695, in forward
+    self_attention_outputs = self.layer[0](
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 602, in forward
+    attention_output = self.SelfAttention(
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 521, in forward
+    query_states = shape(self.q(hidden_states))  # (batch_size, n_heads, seq_length, dim_per_head)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/016070262/.conda/envs/fastaenv/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: "addmm_impl_cpu_" not implemented for 'Half'
+
+ERROR conda.cli.main_run:execute(47): `conda run python prott5_predictions.py Small Peptide Hits` failed. (See above for error)
+Using device: cpu
+Loading: Rostlab/prot_t5_xl_half_uniref50-enc
+
