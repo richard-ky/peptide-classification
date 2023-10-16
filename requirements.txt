@@ -3,8 +3,8 @@ transformers
 sentencepiece
 scikit-learn
 joblib
-pickle
 --extra-index-url https://download.pytorch.org/whl/cu116
 torch
 torchvision 
 torchaudio
+accelerate
