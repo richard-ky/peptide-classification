@@ -1,7 +1,6 @@
 biopython
 transformers
 sentencepiece
-re
 scikit-learn
 joblib
 pickle
