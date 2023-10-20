@@ -4,8 +4,10 @@ import pickle
 import lzma
 import os
 
-for filename in os.listdir("compressed"):
-  with lzma.open(filename) as f:
+path = "/home/016070262/peptide-classification/"
+
+for filename in os.listdir(path + "compressed"):
+  with lzma.open(path + "compressed/" + filename) as f:
     fasta = pickle.load(f)
 
   # Import libraries
@@ -55,5 +57,5 @@ for filename in os.listdir("compressed"):
 
   # Serialize predictions
 
-  with open('predictions/' + re.sub('compressed', 'predictions', filename), 'wb') as fp:
+  with open(path + 'predictions/' + re.sub('compressed', 'predictions', filename), 'wb') as fp:
     pickle.dump(predictions, fp)

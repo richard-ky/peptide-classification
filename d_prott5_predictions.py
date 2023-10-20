@@ -3,7 +3,7 @@
 import pickle
 import lzma
 
-with lzma.open("/dictionary/fasta_compressed") as f:
+with lzma.open("dictionary/fasta_compressed") as f:
   data = pickle.load(f)
 
 preds = {}
