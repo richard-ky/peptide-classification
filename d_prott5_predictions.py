@@ -43,7 +43,7 @@ import lzma
 
 path = "/home/016070262/peptide-classification/"
 
-with lzma.open("path" + "dictionary/fasta_compressed") as f:
+with lzma.open(path + "dictionary/fasta_compressed") as f:
   data = pickle.load(f)
 
 preds = {}
@@ -61,5 +61,5 @@ for key in data.keys():
 
 # Serialize predictions
 
-with open('predictions/fasta_compressed', 'wb') as fp:
+with open(path + 'predictions/fasta_compressed', 'wb') as fp:
   pickle.dump(preds, fp)
