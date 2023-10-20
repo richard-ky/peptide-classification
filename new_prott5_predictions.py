@@ -48,14 +48,14 @@ for filename in os.listdir(path + "compressed"):
   with lzma.open(path + "compressed/" + filename) as f:
     fasta = pickle.load(f)
 
-    fasta_embeddings = [sentence_embedding(peptide) for peptide in fasta]
-    fasta_embeddings = torch.cat(fasta_embeddings).to('cpu')
+  fasta_embeddings = [sentence_embedding(peptide) for peptide in fasta]
+  fasta_embeddings = torch.cat(fasta_embeddings).to('cpu')
 
-    # Make predictions
+  # Make predictions
 
-    predictions = sv_model.predict(fasta_embeddings)
+  predictions = sv_model.predict(fasta_embeddings)
 
-    # Serialize predictions
+  # Serialize predictions
 
-    with open(path + 'predictions/' + re.sub('compressed', 'predictions', filename), 'wb') as fp:
-      pickle.dump(predictions, fp)
+  with open(path + 'predictions/' + re.sub('compressed', 'predictions', filename), 'wb') as fp:
+    pickle.dump(predictions, fp)
