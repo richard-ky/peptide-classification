@@ -1,0 +1,6 @@
+rbf train mcc: 0.9346109266188006
+rbf test mcc: 0.7028558473952391
+cv best score: 0.8582599249132876
+cv best params: {'gamma': 0.41500000000000004, 'break_ties': True, 'C': 0.3206}
+cv best index: 49
+cv test score: 0.7028558473952391
