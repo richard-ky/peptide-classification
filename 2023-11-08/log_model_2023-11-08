@@ -1,0 +1,6 @@
+log train mcc: 0.8791306287808245
+log test mcc: 0.6472393849654601
+cv best score: 0.8410301047489416
+cv best params: {'penalty': 'l2', 'C': 9.885}
+cv best index: 19
+cv test score: 0.7148514974672808

@@ -1,0 +1,6 @@
+knn train mcc: 0.8142971268766958
+knn test mcc: 0.675989663616579
+cv best score: 0.8324020930105437
+cv best params: {'weights': 'uniform', 'p': 2, 'n_neighbors': 2, 'leaf_size': 19}
+cv best index: 14
+cv test score: 0.7323633845799684

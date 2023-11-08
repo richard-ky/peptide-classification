@@ -1,0 +1,6 @@
+lin train mcc: 0.9551628369865629
+lin test mcc: 0.6630644836734768
+cv best score: 0.8267001829509033
+cv best params: {'gamma': 3.231, 'break_ties': False, 'C': 1.7712}
+cv best index: 35
+cv test score: 0.6933129007492053
