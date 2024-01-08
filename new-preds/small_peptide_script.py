@@ -21,8 +21,10 @@ import re
 def sentence_embedding(sentence):
   sentence = " ".join(list(re.sub(r"[UZOB]", "X", sentence)))
   inputs = tokenizer(sentence, padding='longest', return_tensors="pt").to(device)
-  input_ids = torch.tensor(inputs['input_ids']).to(device)
-  attention_mask = torch.tensor(inputs['attention_mask']).to(device)
+  #input_ids = torch.tensor(inputs['input_ids']).to(device)
+  input_ids = inputs['input_ids'].clone().detach().to(device)
+  #attention_mask = torch.tensor(inputs['attention_mask']).to(device)
+  attention_mask = inputs['attention_mask'].clone().detach().to(device)
   with torch.no_grad():
       outputs = model(input_ids=input_ids,attention_mask=attention_mask)
       embeddings = torch.mean(outputs.last_hidden_state, dim=1) # Get the CLS token embedding
@@ -33,7 +35,8 @@ def sentence_embedding(sentence):
 from sklearn.svm import SVC
 import pickle
 
-sv_model = pickle.load('svc60.pkl')
+with open('svc60.pkl', 'rb') as f:
+  sv_model = pickle.load(f)
 
 # Import data
 
@@ -57,7 +60,7 @@ for key in data.keys():
 # Save embeddings and predictions
 
 with open('small_preds.pkl', 'wb') as f:
-  pickle.dump(preds)
+  pickle.dump(preds, f)
 
 with open('small_embed.pkl', 'wb') as f:
-  pickle.dump(embed)
+  pickle.dump(embed, f)
