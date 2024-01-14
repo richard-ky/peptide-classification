@@ -55,8 +55,8 @@ for filename in os.listdir('../compressed'):
 
     # Save embeddings and predictions
 
-    with open('/preds/' + re.sub('compressed', 'preds.pkl', filename), 'wb') as f:
+    with open('./preds/' + re.sub('compressed', 'preds.pkl', filename), 'wb') as f:
       pickle.dump(preds, f)
 
-    with open('/embed/' + re.sub('compressed', 'embed.pkl', filename), 'wb') as f:
+    with open('./embed/' + re.sub('compressed', 'embed.pkl', filename), 'wb') as f:
       pickle.dump(embed, f)
